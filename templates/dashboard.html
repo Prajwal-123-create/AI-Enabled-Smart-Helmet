@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Helmet Dashboard</title>
+<style>
+body{margin:0;background:#0b1220;color:#fff;font-family:Arial;padding:25px}
+h1{color:#38bdf8}p{color:#9ca3af}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.card{background:#172033;padding:22px;border-radius:14px}
+.value{font-size:32px;font-weight:bold;margin-top:15px}
+.status{color:#4ade80}
+</style>
+</head>
+<body>
+<h1>AI-Enabled Smart Helmet</h1>
+<p>Worker Safety Monitoring Dashboard</p>
+<div class="grid">
+<div class="card">🌡️ Temperature<div class="value" id="temp">-- °C</div></div>
+<div class="card">💧 Humidity<div class="value" id="humidity">-- %</div></div>
+<div class="card">🦺 Motion Status<div class="value status" id="motion">Waiting</div></div>
+<div class="card">☁️ Gas Level<div class="value" id="gas">--</div><p>Simulated data only</p></div>
+<div class="card">🚨 Safety Alert<div class="value status" id="alert">Connecting...</div></div>
+</div>
+<script>
+async function update(){
+ try{
+  const r=await fetch('/api/data');
+  const d=await r.json();
+  document.getElementById('temp').textContent=d.temperature+' °C';
+  document.getElementById('humidity').textContent=d.humidity+' %';
+  document.getElementById('motion').textContent=d.motion;
+  document.getElementById('gas').textContent=d.gas;
+  document.getElementById('alert').textContent=d.alert;
+ }catch(e){
+  document.getElementById('alert').textContent='Offline';
+ }
+}
+update();
+setInterval(update,2000);
+</script>
+</body>
+</html>
