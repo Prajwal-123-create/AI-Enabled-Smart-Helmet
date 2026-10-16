@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Helmet Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b1220;
+            color: white;
+        }
+        header {
+            padding: 25px 7%;
+            background: #142238;
+        }
+        h1 { color: #38bdf8; }
+        main { padding: 30px 7%; }
+        .status {
+            background: #12382f;
+            color: #86efac;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #17263c;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+        .value { font-size: 26px; font-weight: bold; }
+        .warning { color: #fbbf24; }
+        .note { color: #94a3b8; margin-top: 25px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI-Enabled Smart Helmet</h1>
+        <p>Industrial Worker Safety Monitoring System</p>
+    </header>
+
+    <main>
+        <div class="status">● Dashboard Online — Demo Mode</div>
+
+        <div class="grid">
+            <div class="card">
+                <p>Worker Status</p>
+                <div class="value">Demo</div>
+            </div>
+            <div class="card">
+                <p>MQ-2 Gas Sensor</p>
+                <div class="value">Waiting</div>
+            </div>
+            <div class="card">
+                <p>MPU6050 Motion Sensor</p>
+                <div class="value">Waiting</div>
+            </div>
+            <div class="card">
+                <p>Hazard Alerts</p>
+                <div class="value warning">0</div>
+            </div>
+        </div>
+
+        <p class="note">
+            Demo interface only. Live sensor data is not connected yet.
+        </p>
+    </main>
+</body>
+</html>
